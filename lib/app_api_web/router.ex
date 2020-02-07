@@ -8,6 +8,7 @@ defmodule AppApiWeb.Router do
   scope "/", AppApiWeb do
     pipe_through :api
     get "/auth/google/callback", GoogleAuthController, :index
+    get "/auth/github/callback", GithubAuthController, :index
   end
 
   scope "/api", AppApiWeb do

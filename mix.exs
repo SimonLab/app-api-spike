@@ -41,7 +41,8 @@ defmodule AppApi.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:cors_plug, "~> 2.0"}
+      {:cors_plug, "~> 2.0"},
+      {:elixir_auth_google, "~> 1.0"}
     ]
   end
 

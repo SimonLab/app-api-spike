@@ -40,5 +40,6 @@ defmodule AppApiWeb.Endpoint do
     key: "_app_api_key",
     signing_salt: "yOZl3lRf"
 
+  plug CORSPlug, origin: ["*"]
   plug AppApiWeb.Router
 end

@@ -4,8 +4,8 @@ defmodule AppApiWeb.GithubAuthController do
   @doc """
   `index/2` handles the callback from GitHub Auth API redirect.
   """
-  def index(conn, %{"code" => code}) do
+  def index(conn, %{"code" => code, "state" => client} = params) do
     {:ok, profile} = ElixirAuthGithub.github_auth(code)
-    render(conn, "index.json", profile: profile)
+    redirect(conn, external: "#{client}?jwt=test.jwt.example")
   end
 end

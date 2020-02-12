@@ -6,7 +6,7 @@ defmodule AppApiWeb.AuthUrlView do
     %{data: data}
   end
 
-  def render("url.json", %{url: url}) do
-    %{url: url}
+  def render("url.json", url) do
+    url
   end
 end

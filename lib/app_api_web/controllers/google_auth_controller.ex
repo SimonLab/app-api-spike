@@ -4,11 +4,10 @@ defmodule AppApiWeb.GoogleAuthController do
   @doc """
   `index/2` handles the callback from Google Auth API redirect.
   """
-  def index(conn, %{"code" => code}) do
+  def index(conn, %{"code" => code, "state" => client}) do
     {:ok, token} = ElixirAuthGoogle.get_token(code, conn)
     {:ok, profile} = ElixirAuthGoogle.get_user_profile(token.access_token)
-    # Create auth token from profile email
-    # Create session
-    render(conn, "index.json", profile: profile)
+
+    redirect(conn, external: "#{client}?jwt=test.jwt.example")
   end
 end
